@@ -7,6 +7,7 @@ class ImageFile {
   final String extension;
   final Uint8List? bytes;
   final String? path;
+  final bool isNetworkImage; // determine
 
   /// returns true if image has path. (For web path is not available)
   bool get hasPath => path != null;
@@ -15,7 +16,7 @@ class ImageFile {
   int get size => bytes?.length ?? 0;
 
   ImageFile(this.key,
-      {required this.name, required this.extension, this.bytes, this.path});
+      {required this.name, required this.extension, this.bytes, this.path, this.isNetworkImage = false});
 
   List<Object?> get props => [path, bytes];
 
